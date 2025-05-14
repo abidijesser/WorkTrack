@@ -45,8 +45,8 @@ const Login = () => {
     console.log('Attempting to login with email:', email)
 
     try {
-      console.log('Sending login request to:', axios.defaults.baseURL + '/api/auth/login')
-      const response = await axios.post('api/auth/login', {
+      console.log('Sending login request to:', axios.defaults.baseURL + `${api}/api/auth/login`)
+      const response = await axios.post(`${api}/api/auth/login`, {
         email: email,
         password: password,
       })
