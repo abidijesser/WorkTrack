@@ -65,7 +65,7 @@ const Register = () => {
 
     try {
       console.log('Sending registration request to: http://localhost:3001/api/auth/register')
-      const response = await fetch('http://localhost:3001/api/auth/register', {
+      const response = await fetch(`${api}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+const api = import.meta.env.VITE_API_URL;
 import {
   CButton,
   CCard,
@@ -45,7 +46,7 @@ const Login = () => {
 
     try {
       console.log('Sending login request to:', axios.defaults.baseURL + '/api/auth/login')
-      const response = await axios.post('/api/auth/login', {
+      const response = await axios.post(`${api}/api/auth/login`, {
         email: email,
         password: password,
       })
@@ -139,7 +140,7 @@ const Login = () => {
       const cleanCode = twoFactorCode.toString().replace(/\s+/g, '')
       console.log('Cleaned 2FA code:', cleanCode)
 
-      const response = await axios.post('/api/auth/login', {
+      const response = await axios.post(`${api}/api/auth/login`, {
         email: tempUserData.email,
         password: tempUserData.password,
         twoFactorCode: cleanCode,
