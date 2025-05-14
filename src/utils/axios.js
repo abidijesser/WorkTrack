@@ -1,8 +1,9 @@
 import axios from 'axios'
 
 // Create an axios instance with base configuration
+//baseURL: 'http://localhost:3001',
 const instance = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://worktrack-server-muu6.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },
