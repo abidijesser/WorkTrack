@@ -148,7 +148,7 @@ const TaskForm = () => {
       console.log('Fetching members for project ID:', projectId)
 
       // First, get the project details to set selectedProject
-      const projectResponse = await axios.get(`http://localhost:3001/api/projects/${projectId}`, {
+      const projectResponse = await axios.get(`https://worktrack-server-muu6.onrender.com/api/projects/${projectId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -160,7 +160,7 @@ const TaskForm = () => {
 
       // Now directly fetch the project members using the dedicated endpoint
       const membersResponse = await axios.get(
-        `http://localhost:3001/api/projects/${projectId}/members`,
+        `https://worktrack-server-muu6.onrender.com/api/projects/${projectId}/members`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -204,7 +204,7 @@ const TaskForm = () => {
       const userRole = localStorage.getItem('userRole')
       console.log('TaskForm - User role:', userRole)
 
-      const projectsRes = await axios.get('http://localhost:3001/api/projects', {
+      const projectsRes = await axios.get('https://worktrack-server-muu6.onrender.com/api/projects', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -213,7 +213,7 @@ const TaskForm = () => {
       let usersRes = { data: { success: true, users: [] } }
 
       try {
-        usersRes = await axios.get('http://localhost:3001/api/auth/users', {
+        usersRes = await axios.get('https://worktrack-server-muu6.onrender.com/api/auth/users', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -222,7 +222,7 @@ const TaskForm = () => {
         console.error('Error fetching users:', error)
         try {
           console.log('Falling back to current user only')
-          const profileRes = await axios.get('http://localhost:3001/api/auth/profile', {
+          const profileRes = await axios.get('https://worktrack-server-muu6.onrender.com/api/auth/profile', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -249,7 +249,7 @@ const TaskForm = () => {
       }
 
       if (isEditMode) {
-        const taskRes = await axios.get(`http://localhost:3001/api/tasks/${id}`, {
+        const taskRes = await axios.get(`https://worktrack-server-muu6.onrender.com/api/tasks/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -322,8 +322,8 @@ const TaskForm = () => {
       }
 
       const url = isEditMode
-        ? `http://localhost:3001/api/tasks/${id}`
-        : 'http://localhost:3001/api/tasks'
+        ? `https://worktrack-server-muu6.onrender.com/api/tasks/${id}`
+        : 'https://worktrack-server-muu6.onrender.com/api/tasks'
 
       const method = isEditMode ? 'put' : 'post'
 

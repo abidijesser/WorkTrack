@@ -228,14 +228,14 @@ const Login = () => {
     // Clear any existing tokens
     localStorage.removeItem('token')
     // Use the full URL for Google auth with explicit scope
-    window.location.href = 'http://localhost:3001/api/auth/google?scope=profile%20email'
+    window.location.href = 'https://worktrack-server-muu6.onrender.com/api/auth/google?scope=profile%20email'
   }
 
   const handleFacebookLogin = () => {
     // Clear any existing tokens
     localStorage.removeItem('token')
     // Use the full URL for Facebook auth
-    window.location.href = 'http://localhost:3001/api/auth/facebook'
+    window.location.href = 'https://worktrack-server-muu6.onrender.com/api/auth/facebook'
   }
 
   return (

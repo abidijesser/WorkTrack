@@ -1,7 +1,7 @@
 import io from 'socket.io-client'
 
 // Make sure this matches the server port where your Socket.IO server is running
-const SOCKET_URL = 'http://localhost:3001'
+const SOCKET_URL = 'https://worktrack-server-muu6.onrender.com'
 
 class SocketService {
   constructor() {

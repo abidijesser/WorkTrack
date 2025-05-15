@@ -69,7 +69,7 @@ const ProjectDocuments = ({ projectId }) => {
     try {
       // Create a link to download the file
       const link = document.createElement('a')
-      link.href = `http://localhost:3001/${doc.filePath}`
+      link.href = `https://worktrack-server-muu6.onrender.com/${doc.filePath}`
       link.setAttribute('download', doc.name)
       document.body.appendChild(link)
       link.click()

@@ -64,7 +64,7 @@ const MediaDetail = ({ media }) => {
   }
 
   const renderMediaPreview = () => {
-    const fileUrl = `http://localhost:3001/${fullMedia.filePath}`
+    const fileUrl = `https://worktrack-server-muu6.onrender.com/${fullMedia.filePath}`
 
     switch (fullMedia.fileType) {
       case 'image':

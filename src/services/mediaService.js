@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3001/api/media'
+const API_URL = 'https://worktrack-server-muu6.onrender.com/api/media'
 
 // Create axios instance with auth token
 const getAuthAxios = () => {

@@ -65,7 +65,7 @@ const MeetingRoom = () => {
     fetchMeeting()
 
     // Set up socket connection
-    const socket = io(process.env.REACT_APP_API_URL || 'http://localhost:3001')
+    const socket = io(process.env.REACT_APP_API_URL || 'https://worktrack-server-muu6.onrender.com')
     socketRef.current = socket
 
     // Join meeting room

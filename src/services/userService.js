@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001/api/auth';
+const API_URL = 'https://worktrack-server-muu6.onrender.com/api/auth';
 
 // Get all users
 export const fetchUsers = async () => {

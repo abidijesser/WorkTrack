@@ -43,7 +43,7 @@ const EditTask = () => {
         return
       }
 
-      const response = await axios.get(`http://localhost:3001/api/tasks/${id}`, {
+      const response = await axios.get(`https://worktrack-server-muu6.onrender.com/api/tasks/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -83,8 +83,8 @@ const EditTask = () => {
       }
 
       const [projectsRes, usersRes] = await Promise.all([
-        axios.get('http://localhost:3001/api/projects', headers),
-        axios.get('http://localhost:3001/api/auth/users', headers),
+        axios.get('https://worktrack-server-muu6.onrender.com/api/projects', headers),
+        axios.get('https://worktrack-server-muu6.onrender.com/api/auth/users', headers),
       ])
       setProjects(projectsRes.data.projects || [])
       setUsers(usersRes.data.users || [])
@@ -110,7 +110,7 @@ const EditTask = () => {
         return
       }
 
-      await axios.put(`http://localhost:3001/api/tasks/${id}`, task, {
+      await axios.put(`https://worktrack-server-muu6.onrender.com/api/tasks/${id}`, task, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',

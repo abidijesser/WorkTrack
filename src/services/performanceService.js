@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = 'https://worktrack-server-muu6.onrender.com/api';
 
 // Récupérer les données de performance
 export const getPerformanceData = async () => {

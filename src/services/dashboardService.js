@@ -14,7 +14,7 @@ export const getProjectsForDashboard = async (limit = 3) => {
     }
 
     // Utiliser l'endpoint spécifique pour le tableau de bord qui inclut les tâches
-    const response = await axios.get('http://localhost:3001/api/projects', {
+    const response = await axios.get('https://worktrack-server-muu6.onrender.com/api/projects', {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',

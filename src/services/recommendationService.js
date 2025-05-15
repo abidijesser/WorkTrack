@@ -15,7 +15,7 @@ export const getRecommendedMembers = async (title, description, projectId) => {
     }
 
     const response = await axios.post(
-      'http://localhost:3001/api/recommendations/members',
+      'https://worktrack-server-muu6.onrender.com/api/recommendations/members',
       { title, description, projectId },
       {
         headers: {

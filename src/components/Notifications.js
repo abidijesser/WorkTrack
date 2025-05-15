@@ -51,7 +51,7 @@ const Notifications = ({ socket }) => {
         return
       }
 
-      const response = await axios.get('http://localhost:3001/api/notifications', {
+      const response = await axios.get('https://worktrack-server-muu6.onrender.com/api/notifications', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

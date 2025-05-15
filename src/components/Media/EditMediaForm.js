@@ -31,7 +31,7 @@ const EditMediaForm = ({ media, onSuccess }) => {
       formData.append('type', media.type)
       formData.append('name', values.name)
 
-      await axios.put(`http://localhost:3001/api/media/${media._id}`, formData, {
+      await axios.put(`https://worktrack-server-muu6.onrender.com/api/media/${media._id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
 

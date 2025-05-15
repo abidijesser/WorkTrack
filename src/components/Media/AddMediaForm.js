@@ -24,7 +24,7 @@ const AddMediaForm = ({ taskId, onSuccess }) => {
         formData.append('file', fileList[0].originFileObj)
       }
 
-      await axios.post('http://localhost:3001/api/media', formData, {
+      await axios.post('https://worktrack-server-muu6.onrender.com/api/media', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
 

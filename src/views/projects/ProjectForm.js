@@ -75,14 +75,14 @@ const ProjectForm = () => {
       }
 
       if (isEditMode) {
-        await axios.put(`http://localhost:3001/api/projects/${id}`, project, {
+        await axios.put(`https://worktrack-server-muu6.onrender.com/api/projects/${id}`, project, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         toast.success('Projet mis à jour avec succès')
       } else {
-        await axios.post('http://localhost:3001/api/projects', project, {
+        await axios.post('https://worktrack-server-muu6.onrender.com/api/projects', project, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

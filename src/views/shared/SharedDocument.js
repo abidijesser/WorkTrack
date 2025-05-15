@@ -97,7 +97,7 @@ const SharedDocument = () => {
 
     try {
       // Utiliser la nouvelle route de téléchargement qui enregistre les statistiques
-      const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+      const baseUrl = import.meta.env.VITE_API_URL || 'https://worktrack-server-muu6.onrender.com'
       const downloadUrl = `${baseUrl}/api/share/public/download/${token}`
 
       // Ouvrir l'URL dans un nouvel onglet ou utiliser un lien invisible

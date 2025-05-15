@@ -118,7 +118,7 @@ const MediaList = ({ media, onDelete, onEdit, page, totalPages, onPageChange }) 
                   <div className="media-card-preview">
                     {item.fileType === 'image' ? (
                       <img
-                        src={`http://localhost:3001/${item.filePath}`}
+                        src={`https://worktrack-server-muu6.onrender.com/${item.filePath}`}
                         alt={item.title}
                         className="img-fluid media-preview-img"
                       />

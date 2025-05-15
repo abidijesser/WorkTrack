@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3001/api/meetings' // URL de l'API meetings
+const API_URL = 'https://worktrack-server-muu6.onrender.com/api/meetings' // URL de l'API meetings
 
 // Get auth headers
 const getAuthHeaders = () => ({

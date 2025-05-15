@@ -77,7 +77,7 @@ const EditProject = () => {
           return
         }
 
-        const response = await axios.get('http://localhost:3001/api/auth/users', {
+        const response = await axios.get('https://worktrack-server-muu6.onrender.com/api/auth/users', {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -137,8 +137,8 @@ const EditProject = () => {
 
       console.log(`Fetching project with ID: ${id}`)
 
-      // Utiliser l'URL complète avec le préfixe http://localhost:3001
-      const response = await axios.get(`http://localhost:3001/api/projects/${id}`, {
+      // Utiliser l'URL complète avec le préfixe https://worktrack-server-muu6.onrender.com
+      const response = await axios.get(`https://worktrack-server-muu6.onrender.com/api/projects/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -290,7 +290,7 @@ const EditProject = () => {
         members: selectedMembers,
       }
 
-      const response = await axios.put(`http://localhost:3001/api/projects/${id}`, projectData, {
+      const response = await axios.put(`https://worktrack-server-muu6.onrender.com/api/projects/${id}`, projectData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'

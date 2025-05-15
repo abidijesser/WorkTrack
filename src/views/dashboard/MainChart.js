@@ -74,7 +74,7 @@ const MainChart = () => {
 
       try {
         // Fetch all tasks directly
-        const tasksResponse = await axios.get(`http://localhost:3001/api/tasks`, {
+        const tasksResponse = await axios.get(`https://worktrack-server-muu6.onrender.com/api/tasks`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -163,7 +163,7 @@ const MainChart = () => {
         return
       }
 
-      const response = await axios.get('http://localhost:3001/api/projects', {
+      const response = await axios.get('https://worktrack-server-muu6.onrender.com/api/projects', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -200,7 +200,7 @@ const MainChart = () => {
       try {
         // Fetch tasks for the project directly
         const tasksResponse = await axios.get(
-          `http://localhost:3001/api/tasks?project=${projectId}`,
+          `https://worktrack-server-muu6.onrender.com/api/tasks?project=${projectId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

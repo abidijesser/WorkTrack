@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3001/api/projects'
+const API_URL = 'https://worktrack-server-muu6.onrender.com/api/projects'
 
 // Get auth headers
 const getAuthHeaders = () => ({

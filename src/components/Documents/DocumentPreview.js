@@ -17,7 +17,7 @@ const DocumentPreview = ({ document }) => {
       setError(null)
 
       // Construire l'URL complète du document
-      const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+      const baseUrl = import.meta.env.VITE_API_URL || 'https://worktrack-server-muu6.onrender.com'
       const documentUrl = `${baseUrl}/${document.filePath}`
 
       // Déterminer le type MIME en fonction de l'extension du fichier
@@ -63,7 +63,7 @@ const DocumentPreview = ({ document }) => {
     try {
       // Créer un lien pour télécharger le fichier
       const link = window.document.createElement('a')
-      const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+      const baseUrl = import.meta.env.VITE_API_URL || 'https://worktrack-server-muu6.onrender.com'
       link.href = `${baseUrl}/${document.filePath}`
       link.setAttribute('download', document.name)
       window.document.body.appendChild(link)
@@ -78,7 +78,7 @@ const DocumentPreview = ({ document }) => {
   // Fonction pour ouvrir le document dans un nouvel onglet
   const handleOpenInNewTab = () => {
     try {
-      const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+      const baseUrl = import.meta.env.VITE_API_URL || 'https://worktrack-server-muu6.onrender.com'
       window.open(`${baseUrl}/${document.filePath}`, '_blank')
     } catch (error) {
       console.error("Erreur lors de l'ouverture du document:", error)
