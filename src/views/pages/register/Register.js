@@ -64,7 +64,7 @@ const Register = () => {
     console.log('Attempting to register with:', { name, email })
 
     try {
-      const response = await fetch('api/auth/register', {
+      const response = await fetch('https://worktrack-server-muu6.onrender.com/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ const VerifyEmail = () => {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        await axios.get(`http://localhost:3001/verify-email/${token}`)
+        await axios.get(`https://worktrack-server-muu6.onrender.com/verify-email/${token}`)
         setStatus('Email vérifié avec succès!')
         setTimeout(() => navigate('/login'), 3000)
       } catch (err) {

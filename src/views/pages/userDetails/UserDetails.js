@@ -18,7 +18,7 @@ const UserDetails = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/admin/users/${id}`);
+        const response = await axios.get(`https://worktrack-server-muu6.onrender.com/admin/users/${id}`);
         setUser(response.data);
       } catch (error) {
         console.error('Erreur lors du chargement des détails:', error);

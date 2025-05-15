@@ -37,7 +37,7 @@ const ResetPassword = () => {
 
     try {
       console.log('Envoi de la requête de réinitialisation...')
-      const response = await axios.post('api/auth/reset-password', {
+      const response = await axios.post('https://worktrack-server-muu6.onrender.com/api/auth/reset-password', {
         token,
         newPassword,
       })

@@ -46,7 +46,7 @@ const Login = () => {
 
     try {
       console.log('Sending login request to:', axios.defaults.baseURL + `${api}/api/auth/login`)
-      const response = await axios.post(`${api}/api/auth/login`, {
+      const response = await axios.post(`https://worktrack-server-muu6.onrender.com/api/auth/login`, {
         email: email,
         password: password,
       })
