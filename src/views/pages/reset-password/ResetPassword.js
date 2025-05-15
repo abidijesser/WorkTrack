@@ -121,7 +121,7 @@ const ResetPassword = () => {
                         placeholder="Nouveau mot de passe"
                         value={newPassword}
                         onChange={handleNewPasswordChange}
-                        required
+                        
                       />
                       {newPasswordError && <CFormText className="text-danger">{newPasswordError}</CFormText>}
                     </div>
@@ -132,7 +132,7 @@ const ResetPassword = () => {
                         placeholder="Confirmer le mot de passe"
                         value={confirmPassword}
                         onChange={handleConfirmPasswordChange}
-                        required
+                        
                       />
                       {confirmPasswordError && (
                         <CFormText className="text-danger">{confirmPasswordError}</CFormText>
