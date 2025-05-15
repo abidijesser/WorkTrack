@@ -11,53 +11,92 @@ import {
   CFormInput,
   CRow,
   CAlert,
+  CFormText,
 } from '@coreui/react'
 import axios from 'axios'
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [error, setError] = useState('')
+  const [newPasswordError, setNewPasswordError] = useState('')
+  const [confirmPasswordError, setConfirmPasswordError] = useState('')
+  const [globalError, setGlobalError] = useState('')
   const [success, setSuccess] = useState('')
   const { token } = useParams()
   const navigate = useNavigate()
 
+  const validatePassword = (password) => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
+    return regex.test(password)
+  }
+
+  const handleNewPasswordChange = (e) => {
+    const value = e.target.value
+    setNewPassword(value)
+
+    if (!validatePassword(value)) {
+      setNewPasswordError(
+        'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre',
+      )
+    } else {
+      setNewPasswordError('')
+    }
+
+    if (confirmPassword && value !== confirmPassword) {
+      setConfirmPasswordError('Les mots de passe ne correspondent pas')
+    } else {
+      setConfirmPasswordError('')
+    }
+  }
+
+  const handleConfirmPasswordChange = (e) => {
+    const value = e.target.value
+    setConfirmPassword(value)
+
+    if (value !== newPassword) {
+      setConfirmPasswordError('Les mots de passe ne correspondent pas')
+    } else {
+      setConfirmPasswordError('')
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (newPassword !== confirmPassword) {
-      setError('Les mots de passe ne correspondent pas')
+    if (!validatePassword(newPassword)) {
+      setNewPasswordError(
+        'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre',
+      )
       return
     }
 
-    if (newPassword.length < 6) {
-      setError('Le mot de passe doit contenir au moins 6 caractères')
+    if (newPassword !== confirmPassword) {
+      setConfirmPasswordError('Les mots de passe ne correspondent pas')
       return
     }
 
     try {
-      console.log('Envoi de la requête de réinitialisation...')
-      const response = await axios.post('https://worktrack-server-muu6.onrender.com/api/auth/reset-password', {
-        token,
-        newPassword,
-      })
-
-      console.log('Réponse reçue:', response.data)
+      const response = await axios.post(
+        'https://worktrack-server-muu6.onrender.com/api/auth/reset-password',
+        {
+          token,
+          newPassword,
+        },
+      )
 
       if (response.data.success) {
         setSuccess(
           'Mot de passe réinitialisé avec succès. Redirection vers la page de connexion...',
         )
-        setError('')
+        setGlobalError('')
         setTimeout(() => {
           navigate('/login')
         }, 3000)
       } else {
-        setError(response.data.error || 'Erreur lors de la réinitialisation du mot de passe')
+        setGlobalError(response.data.error || 'Erreur lors de la réinitialisation du mot de passe')
       }
     } catch (err) {
-      console.error('Erreur détaillée:', err.response?.data)
-      setError(err.response?.data?.error || 'Une erreur est survenue lors de la réinitialisation')
+      setGlobalError(err.response?.data?.error || 'Une erreur est survenue lors de la réinitialisation')
       setSuccess('')
     }
   }
@@ -73,7 +112,7 @@ const ResetPassword = () => {
                   <CForm onSubmit={handleSubmit}>
                     <h1>Réinitialiser le mot de passe</h1>
 
-                    {error && <CAlert color="danger">{error}</CAlert>}
+                    {globalError && <CAlert color="danger">{globalError}</CAlert>}
                     {success && <CAlert color="success">{success}</CAlert>}
 
                     <div className="mb-3">
@@ -81,9 +120,10 @@ const ResetPassword = () => {
                         type="password"
                         placeholder="Nouveau mot de passe"
                         value={newPassword}
-                        onChange={(e) => setNewPassword(e.target.value)}
+                        onChange={handleNewPasswordChange}
                         required
                       />
+                      {newPasswordError && <CFormText className="text-danger">{newPasswordError}</CFormText>}
                     </div>
 
                     <div className="mb-3">
@@ -91,9 +131,12 @@ const ResetPassword = () => {
                         type="password"
                         placeholder="Confirmer le mot de passe"
                         value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        onChange={handleConfirmPasswordChange}
                         required
                       />
+                      {confirmPasswordError && (
+                        <CFormText className="text-danger">{confirmPasswordError}</CFormText>
+                      )}
                     </div>
 
                     <CButton color="primary" type="submit">
