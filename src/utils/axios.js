@@ -3,13 +3,16 @@ import axios from 'axios'
 // Create an axios instance with base configuration
 //baseURL: 'http://localhost:3001',
 const instance = axios.create({
-  baseURL: 'https://worktrack-server-muu6.onrender.com/',
+  baseURL: process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3001/'
+    : 'https://worktrack-server-muu6.onrender.com/',
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 30000, // 30 second timeout (increased from 10 seconds)
-  withCredentials: true, // Allow cookies to be sent
-})
+  timeout: 30000,
+  withCredentials: true,
+});
+
 
 // Add a request interceptor
 instance.interceptors.request.use(
